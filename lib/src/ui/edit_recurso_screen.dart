@@ -22,7 +22,7 @@ class EditRecursoScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final size = MediaQuery.of(context).size;
+   // final size = MediaQuery.of(context).size;
     final recursoToEdit = ModalRoute.of(context)?.settings.arguments as Recurso?;
 
     final homeScreen = ref.watch(editRecursoProvider(recursoToEdit));
@@ -41,69 +41,7 @@ class EditRecursoScreen extends ConsumerWidget {
         appBar: AppBar(
           backgroundColor: Colors.black,
           title: const Text('Edit or Create recurso'),
-          actions: [
-            Builder(builder: (context) {
-              return Visibility(
-                visible: recursoToEdit != null,
-                child: IconButton(
-                  key: const Key('Delete'),
-                  icon: const Icon(Icons.delete),
-                  onPressed: () {
-                   showAdaptiveDialog(
-                    context: context,
-                    barrierDismissible: false,
-                    builder: (context) => AlertDialog.adaptive(
-                      insetAnimationCurve: Curves.bounceIn,
-                      title: const Text("Delete", textAlign: TextAlign.center,),
-                      content: const Text("Do you accept?", textAlign: TextAlign.center,),
-                      actions: <Widget>[
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            TextButton(
-                              onPressed: () {
-                                Navigator.pop(context, 'Aceptar');
-                                homeScreen.deleteRecurso();
-                              },
-                              style: TextButton.styleFrom(
-                                textStyle: const TextStyle(fontSize: 16),
-                                minimumSize: const Size(88, 36),
-                                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  side: const BorderSide(color: Colors.green),
-                                ),
-                              ),
-                              child: const Text('Aceptar'),
-                            ),
-                           const SizedBox(width: 10,),
-                            TextButton(
-                              onPressed: () => Navigator.pop(context),
-                              style: TextButton.styleFrom(
-                                textStyle: const TextStyle(fontSize: 16),
-                                minimumSize: const Size(88, 36),
-                                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  side: const BorderSide(color: Colors.red),
-                                ),
-                              ),
-                              child: const Text('Cancel'),
-                            ),
-                          ],
-                        ),
-                      ],
-                      shape:
-                          RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0)),
-                          elevation: 30.0,
-                    ),
-                  );    
-                    
-                  },
-                ),
-              );
-            }),
-          ],
+          
         ),
         body: Container(
           alignment: kIsWeb ? Alignment.topCenter : null,
@@ -162,6 +100,8 @@ class _RecursoSectionState extends ConsumerState<_RecursoSection> {
 
   @override
   Widget build(BuildContext context) {
+    final recursoToEdit = ModalRoute.of(context)?.settings.arguments as Recurso?;
+    final homeScreen = ref.watch(editRecursoProvider(recursoToEdit));
 
     final size = MediaQuery.of(context).size;
 
@@ -303,6 +243,11 @@ class _RecursoSectionState extends ConsumerState<_RecursoSection> {
             ),
             const SizedBox(height: 8),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.green,
+                      minimumSize: const Size(70 , 50),
+                   
+                    ),
               onPressed: widget.isSaving
                   ? null
                   : () {
@@ -315,6 +260,71 @@ class _RecursoSectionState extends ConsumerState<_RecursoSection> {
                     },
               child: const Text('Save'),
             ),
+            const SizedBox(height: 8),
+            Visibility(
+                visible: recursoToEdit != null,
+                child:  ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.red,
+                      minimumSize: const Size(9 , 50),
+                    ),
+                  key: const Key('Delete'),
+                  child: const Text('Delete' ,style: TextStyle(color: Colors.black)),
+                  onPressed: () {
+                   showAdaptiveDialog(
+                    context: context,
+                    barrierDismissible: false,
+                    builder: (context) => AlertDialog.adaptive(
+                      insetAnimationCurve: Curves.bounceIn,
+                      title: const Text("Delete", textAlign: TextAlign.center,),
+                      content: const Text("Do you accept?", textAlign: TextAlign.center,),
+                      actions: <Widget>[
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pop(context, 'Aceptar');
+                                homeScreen.deleteRecurso();
+                              },
+                              style: TextButton.styleFrom(
+                                textStyle: const TextStyle(fontSize: 16),
+                                minimumSize: const Size(88, 36),
+                                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  side: const BorderSide(color: Colors.green),
+                                ),
+                              ),
+                              child: const Text('Aceptar'),
+                            ),
+                           const SizedBox(width: 10,),
+                            TextButton(
+                              onPressed: () => Navigator.pop(context),
+                              style: TextButton.styleFrom(
+                                textStyle: const TextStyle(fontSize: 16),
+                                minimumSize: const Size(88, 36),
+                                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  side: const BorderSide(color: Colors.red),
+                                ),
+                              ),
+                              child: const Text('Cancel'),
+                            ),
+                          ],
+                        ),
+                      ],
+                      shape:
+                          RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0)),
+                          elevation: 30.0,
+                    ),
+                  );    
+                    
+                  },
+                ),
+              )
+            
           ],
         ),
       ),
