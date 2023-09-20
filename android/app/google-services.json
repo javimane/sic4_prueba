@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "957127067434",
+    "project_id": "prueba-tecnica-sic4",
+    "storage_bucket": "prueba-tecnica-sic4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:957127067434:android:f7623db0098c4ae5508053",
+        "android_client_info": {
+          "package_name": "com.example.prueba_tecnica_sic4"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "957127067434-fqm79i28lnuqtitbqdg73fqc6hnfjm90.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHFZHkj46PCabEgJsaiJi_bJbHioh3jRM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "957127067434-fqm79i28lnuqtitbqdg73fqc6hnfjm90.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "957127067434-1c73s9156be8ocdgpjmhpd2iu8ktgvp2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.pruebaTecnicaSic4.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:957127067434:android:f6f44c6d062068d9508053",
+        "android_client_info": {
+          "package_name": "com.example.sic4change_prueba"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "957127067434-fqm79i28lnuqtitbqdg73fqc6hnfjm90.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHFZHkj46PCabEgJsaiJi_bJbHioh3jRM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "957127067434-fqm79i28lnuqtitbqdg73fqc6hnfjm90.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "957127067434-1c73s9156be8ocdgpjmhpd2iu8ktgvp2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.pruebaTecnicaSic4.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
